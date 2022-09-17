@@ -1,0 +1,11 @@
+{% extends 'courses/layout.html' %}
+{% block body %}
+<h2>Course: {{ courses.subname }}</h2>
+<ul>
+    <li>Semester/Year: {{ courses.semester }} / {{ courses.year }}</li>
+    <li>Seat : {{ courses.seat }} </li>
+</ul>
+
+
+<a href="{% url 'courses:index' %}">Back to Course List</a>
+{% endblock %}

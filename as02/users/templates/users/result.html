@@ -1,0 +1,12 @@
+{% extends 'users/layout.html' %}
+{% block body %}
+<h1>Quota requested result</h1>
+
+{% for subject in sublist %}
+    <h4>Subject ID: {{ subject }}</h4>
+{% empty %}
+No subject requested.
+{% endfor %}
+
+<h3><a href="{% url 'users:index' %}">Back to Home</a></h3>
+{% endblock %}

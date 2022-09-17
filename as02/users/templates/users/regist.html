@@ -1,0 +1,18 @@
+{% extends 'users/layout.html' %}
+{% block body %}
+<h1>Quota request</h1>
+<h2>Choose Course:</h2>
+{% if message %}
+    <div style="color:red">{{ message }}</div>
+{% endif %}
+<form action="{% url 'users:book' user.id %}" method="POST">
+    {% csrf_token %}
+    <select name="subject">
+        {% for subject in courses %}
+            <option value="{{ subject.id }}">{{ subject }}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Add Subject">
+</form>
+<h3><a href="{% url 'users:index' %}">Back to Home</a></h3>
+{% endblock %}

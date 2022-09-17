@@ -1,0 +1,11 @@
+{% extends 'users/layout.html' %}
+{% block body %}
+<h1>Welcome, {{ request.user.first }}</h1>
+
+<h2><a href="{% url 'courses:index' %}">Course list</a></h2>
+<h2><a href="{% url 'users:regist' %}">Quota request</a></h2>
+<h2><a href="{% url 'users:remove' %}">Quota remove</a></h2>
+<h2><a href="{% url 'users:result' user.id %}">Quota requested result</a></h2>
+
+<a href="{% url 'users:logout' %}">Log out</a>
+{% endblock %}
