@@ -11,4 +11,4 @@
 - Students สามารถดูรายชื่อวิชาที่ขอโควต้าได้สําเร็จ และสามารถยกเลิกการขอโควต้าได้ (ในกรณีนี้จะมีที่ว่างให้ คนอื่นสามารถลงเพิ่มได้)
 - Admin สามารถดูรายชื่อนักเรียนที่ขอโควต้าในแต่ละรายวิชาได้
 
-[a link to clip](https://drive.google.com/file/d/1GkByhrUgP8L2vnoWCZoRuPx9XnyBq_qk/view?usp=sharing)
+[Click to see Clip](https://drive.google.com/file/d/1GkByhrUgP8L2vnoWCZoRuPx9XnyBq_qk/view?usp=sharing)
