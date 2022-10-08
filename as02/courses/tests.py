@@ -31,21 +31,12 @@ class CourseViewTestCase(TestCase):
         self.assertEqual(
             response.context['courses'].count(), 2)
     
-    def test_valid_course_page(self):
-        """ valid course page should return status code 200 """
+    def test_status_course_page(self):
+        """ course page should return status code 200 """
 
         c = Client()
         f = Course.objects.first()
         response = c.get(reverse('courses:course', args=(f.id,)))
         self.assertEqual(response.status_code, 200)
-
-    def test_invalid_course_page(self):
-        """ invalid course page should return status code 404 """
-
-        max_id = Course.objects.all().aggregate(Max("id"))['id__max']
-
-        c = Client()
-        response = c.get(reverse('courses:course', args=(max_id+1,)))
-        self.assertEqual(response.status_code, 404)
 
     
