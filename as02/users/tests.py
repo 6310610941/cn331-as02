@@ -42,7 +42,7 @@ class CourseViewTestCase(TestCase):
         c = Client()
         c.login(username='wrong_user', password='wrong_user')
         response = c.get(reverse('users:index'))
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
 
     def test_login_view_status_code(self):
         """ login view's status code is ok """
@@ -81,22 +81,14 @@ class CourseViewTestCase(TestCase):
         self.assertEqual(response.context['courses'].count(), 2)
 
     
-    def test_valid_result_page(self):
-        """ valid result page should return status code 200 """
+    def test_status_result_page(self):
+        """  result page should return status code 200 """
 
         c = Client()
         f = Student.objects.first()
         response = c.get(reverse('users:result', args=(f.id+1,)))
         self.assertEqual(response.status_code, 200)
 
-    def test_invalid_result_page(self):
-        """ invalid result page should return status code 404 """
-
-        max_id = Student.objects.all().aggregate(Max("id"))['id__max']
-
-        c = Client()
-        response = c.get(reverse('users:result', args=(max_id+1,)))
-        self.assertEqual(response.status_code, 404)
 
     def test_valid_result_view_context(self):
         """ context is correctly set """
