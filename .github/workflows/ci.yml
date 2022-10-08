@@ -10,7 +10,7 @@ jobs:
     - name: Run Django unit tests
       run: |
         pip install -r as02/requirements.txt
-        python3 manage.py makemigrations
-        python3 manage.py migrate
+        python a02/manage.py makemigrations
+        python as02/manage.py migrate
         coverage run --source='.' manage.py test
         coverage report
