@@ -1,0 +1,16 @@
+
+name: Testing
+on: push
+
+jobs:
+  test_project:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run Django unit tests
+      run: |
+        pip install -r as02/requirements.txt
+        python as02/manage.py makemigrations
+        python as02/manage.py migrate
+        coverage run --source='.' as02/manage.py test
+        coverage report
